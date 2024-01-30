@@ -5,7 +5,7 @@
 <a href="https://dahliaos.io/donate">Donate</a> •
 <a href="https://docs.dahliaos.io">Documentation</a>
 
-# OS
+# Build Linux
 
 This is the build system for dahliaOS. It is based on [Buildroot](https://buildroot.org/) and ran in a Docker container.
 
