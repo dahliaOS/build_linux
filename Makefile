@@ -6,15 +6,15 @@ DOCKER_RUN=docker run \
 	-ti \
 	--volumes-from buildroot_output \
 	-v $(pwd)/images:$(OUTPUT_DIR)/images \
-	ghcr.io/dahliaos/linux:latest
+	ghcr.io/dahliaos/build_linux:latest
 
 .PHONY: build
 
 pull:
-	docker pull ghcr.io/dahliaos/linux:latest
+	docker pull ghcr.io/dahliaos/build_linux:latest
 
 volumes:
-	docker run -i --name buildroot_output ghcr.io/dahliaos/linux:latest /bin/true
+	docker run -i --name buildroot_output ghcr.io/dahliaos/build_linux:latest /bin/true
 
 build: pull volumes
 	@echo "make O=$(OUTPUT_DIR)"
