@@ -1,3 +1,5 @@
+.PHONY: build clean
+
 OUTPUT_DIR=/buildroot_output
 
 DOCKER_RUN=docker run \
@@ -19,3 +21,7 @@ volumes:
 build: pull volumes
 	@echo "make O=$(OUTPUT_DIR)"
 	$(DOCKER_RUN) make O=$(OUTPUT_DIR)
+
+clean:
+    docker ps -q --filter ancestor=ghcr.io/dahliaos/build_linux:latest | xargs docker stop
+    docker ps -a -q --filter ancestor=ghcr.io/dahliaos/build_linux:latest | xargs docker rm
